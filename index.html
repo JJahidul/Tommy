@@ -218,71 +218,6 @@
             color: rgba(255,255,255,0.7);
         }
 
-        /* Entrance Block and Arrow */
-        .entrance-block {
-            grid-area: 5 / 7 / 6 / 9;
-            background-color: var(--th-blue-light);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            border-radius: 12px;
-            padding: 0.8rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            position: relative;
-            border: 2px solid var(--th-red-primary);
-        }
-
-        .entrance-arrow {
-            position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 25px solid transparent;
-            border-right: 25px solid transparent;
-            border-bottom: 30px solid var(--th-blue-light);
-            filter: drop-shadow(0 -2px 0 var(--th-red-primary));
-        }
-
-        .entrance-arrow::before {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: -27px;
-            width: 0;
-            height: 0;
-            border-left: 27px solid transparent;
-            border-right: 27px solid transparent;
-            border-bottom: 32px solid var(--th-red-primary);
-            z-index: -1;
-        }
-
-        .entrance-block p {
-            font-size: 1rem;
-            margin: 0;
-            color: var(--th-white);
-            line-height: 1.3;
-        }
-
-        .entrance-block h3 {
-            font-family: 'Inter', sans-serif;
-            color: var(--th-white);
-            margin: 0 0 0.2rem 0;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        .entrance-block .closing-time {
-            color: var(--th-white);
-            font-weight: 500;
-            font-size: 1rem;
-        }
-
         /* Room Status Indicators */
         .room-status {
             position: absolute;
@@ -291,8 +226,7 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            transition: all 0.3s ease;
-            z-index: 10;
+            transition: background-color 0.3s ease;
         }
 
         .room-status.available {
@@ -612,11 +546,6 @@
         @media (max-width: 480px) {
             .grid-container {
                 grid-template-columns: 1fr;
-            }
-
-            .entrance-block {
-                grid-column: auto;
-                grid-row: auto;
             }
         }
     </style>
@@ -944,12 +873,6 @@
                 <button class="reset-button" onclick="reset(5)">RESET</button>
                 <div class="room-note" id="room-note-5" onclick="toggleRoomNote(5)">Add a note</div>
             </div>
-        </div>
-        <!-- Entrance Block -->
-        <div class="entrance-block">
-            <div class="entrance-arrow"></div>
-            <h3>Entrance to Fits</h3>
-            <p id="closing-time" class="closing-time">Calculating...</p>
         </div>
         <div id="real-time-clock" class="real-time-clock"></div>
         <div id="analytics-panel" style="display:none"></div>
